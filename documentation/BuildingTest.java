@@ -1,4 +1,5 @@
 import org.junit.Test;
+import uml.RelationChecker;
 
 public class BuildingTest {
 
@@ -6,7 +7,7 @@ public class BuildingTest {
 
     @Test
     public void aBuildingCanHaveSeveralRooms() {
-        theFollowingRelation.shouldExist("Building 1-->* Room");
+        theFollowingRelation.theFollowingRelationShouldExist("Building 1-->* Room");
     }
 
 }

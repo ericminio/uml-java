@@ -1,3 +1,5 @@
+package uml;
+
 public class LinkFactory {
 
     public Link buildLink(String linkRepresentation) {

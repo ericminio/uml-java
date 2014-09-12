@@ -1,12 +1,16 @@
+package uml;
+
 import java.lang.reflect.Method;
 
 public class ParentReferenceChecker {
 
-    public void shouldExistBetweenTheGivenClasses(String leftEntity, String rightEntity) {
+    public void shouldExistBetweenTheGivenClasses(Class leftClass, Class rightClass) {
+        String leftEntity = leftClass.getSimpleName();
+        String rightEntity = rightClass.getSimpleName();
         try {
-            String leftEntityWithoutPackage = Class.forName(leftEntity).getSimpleName();
+            String leftEntityWithoutPackage = leftClass.getSimpleName();
             boolean found = false;
-            Method[] methods = Class.forName(rightEntity).getMethods();
+            Method[] methods = rightClass.getMethods();
             for(Method method:methods) {
                 if (method.getName().matches("set(.)*" + leftEntityWithoutPackage)
                         && method.getParameterCount() == 1

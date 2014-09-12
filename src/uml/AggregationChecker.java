@@ -1,3 +1,5 @@
+package uml;
+
 import java.lang.reflect.Method;
 
 public class AggregationChecker {
@@ -5,9 +7,9 @@ public class AggregationChecker {
     private String leftEntity;
     private String rightEntity;
 
-    public void shouldExistBetweenTheGivenClasses(String leftEntity, String rightEntity) {
-        this.leftEntity = leftEntity;
-        this.rightEntity = rightEntity;
+    public void shouldExistBetweenTheGivenClasses(Class leftClass, Class rightClass) {
+        this.leftEntity = leftClass.getSimpleName();
+        this.rightEntity = rightClass.getSimpleName();
 
         try {
             if (!LeftEntityHasAtLeastOneMethodThatTakesTheRightEntityTypeAsParameter()) {
